@@ -1,6 +1,7 @@
 import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Factura } from "./Factura";
 import { Productos } from "./Productos";
+import { IsNotEmpty, IsNumber, MaxLength } from "class-validator";
 
 @Entity()
 export class DetalleFactura {
@@ -13,6 +14,8 @@ export class DetalleFactura {
   @ManyToOne(() => Productos, producto => producto.detallesFactura)
   producto: Productos;
 
+  @IsNumber({message : "Solo valores numericos"})
+  @IsNotEmpty({message : "Debe indicar la cantidad"})
   @Column()
   cantidad: number;
 

@@ -10,18 +10,22 @@ export class Cliente {
   Ruc_Cliente: string;
 
   @Column()
+  @MaxLength(50, { message: 'Debe contener un máximo de 50 caracteres.' })
   @IsNotEmpty({ message: 'Debe indicar el nombre del cliente.' })
   Nombre_Cliente: string;
 
   @Column()
+  @MaxLength(50, { message: 'Debe contener un máximo de 50 caracteres.' })
   @IsNotEmpty({ message: 'Debe indicar el apellido del cliente.' })
   Apellido_Cliente: string;
 
   @Column()
+  @MaxLength(500, { message: 'Debe contener un máximo de 500 caracteres.' })
   @IsNotEmpty({ message: 'Debe indicar la dirección del cliente.' })
   Direccion_Cliente: string;
 
   @Column()
+  @MaxLength(8, { message: 'Debe contener un máximo de 8 caracteres.' })
   @IsNotEmpty({ message: 'Debe indicar el teléfono del cliente.' })
   Telefono_Cliente: string;
 
